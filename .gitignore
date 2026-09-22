@@ -1,0 +1,12 @@
+# 出图引擎的真实密钥，绝不入库
+engine.config.json
+# 本地每日出图计数
+.renders.json
+# 本机代理的运行日志
+server.log
+# 编辑器/系统杂物
+.DS_Store
+Thumbs.db
+
+# 商业分析、定价与内部规划文档：公开仓库里绝不出现（含历史）
+private/

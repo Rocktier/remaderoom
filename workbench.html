@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="出图工作台 —— 上传照片，选风格，一键生成效果图。">
+<title>出图工作台 | 一键生成效果图</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 0 8H2zM22 3h-6a4 4 0 0 0 0 8h6zM2 21h20M2 17h20m-10-6v6"/></svg>
+      </span>
+      一键生成效果图
+    </a>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-ghost btn-sm">返回首页</a>
+    </div>
+  </div>
+</header>
+
+<main class="wb-main">
+  <div class="container">
+
+    <div class="wb-head" data-reveal>
+      <span class="eyebrow">出图工作台</span>
+      <h1>三步，把理想的家出成效果图</h1>
+      <p>上传家里的照片，选一个风格（可再补一句你的想法），AI 一键生成。剩余免费次数：<b id="quotaLeft">3</b> / 3 次。</p>
+    </div>
+
+    <!-- 步骤进度 -->
+    <ol class="stepper" data-reveal>
+      <li class="step is-done" data-step="1"><span class="dot">1</span> 上传照片</li>
+      <li class="step" data-step="2"><span class="dot">2</span> 选风格</li>
+      <li class="step" data-step="3"><span class="dot">3</span> 生成 &amp; 对比</li>
+    </ol>
+
+    <!-- 步骤 1：上传 -->
+    <section class="wb-panel" id="p1" data-reveal>
+      <div class="dropzone" id="dz">
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <div id="dzInner" class="dz-inner">
+          <span class="dz-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>
+          </span>
+          <p>拖一张家里的照片到这里，<br>或 <b>点此选择</b>（卧室 / 客厅 / 卫浴 / 厨房皆可）</p>
+        </div>
+        <div class="dz-preview" id="dzPreview" hidden>
+          <img id="photoPreview" alt="已上传的照片">
+          <span class="dz-repick" id="repickBtn">重新选择</span>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button class="btn btn-primary" id="nextBtn" type="button" aria-disabled="true">下一步：选风格</button>
+      </div>
+    </section>
+
+    <!-- 步骤 2：选风格 -->
+    <section class="wb-panel" id="p2" data-reveal hidden>
+      <p class="field-label">选择你想要的风格</p>
+      <div class="style-grid" id="styleGrid"></div>
+      <p class="field-label" style="margin-top:22px">补充说明（可选）</p>
+      <textarea id="customText" rows="2" maxlength="80"
+        placeholder="例如：想换原木色的浴室柜 / 床头墙刷成奶油白 / 整体再温暖一点"></textarea>
+      <div class="panel-actions">
+        <button class="btn btn-ghost btn-js" id="backBtn1" type="button">上一步</button>
+        <button class="btn btn-primary btn-js" id="genBtn" type="button">生成效果图</button>
+      </div>
+    </section>
+
+    <!-- 步骤 3：生成 & 前后对比 -->
+    <section class="wb-panel" id="p3" data-reveal hidden>
+      <div class="gen-loading" id="genLoading" hidden>
+        <span class="spinner"></span>
+        <p>正在出图，通常 20 秒到 1 分钟…<br><small>这段时间别关窗口，也不用一直盯着。</small></p>
+      </div>
+      <div class="gen-error" id="genError" hidden>
+        <p id="genErrorText"></p>
+        <button class="btn btn-ghost btn-js" id="retryBtn" type="button">回上一步重试</button>
+      </div>
+      <div class="gen-result" id="genResult" hidden>
+        <div class="result-tip" id="demoTip" hidden>当前为【示例效果图】：出图引擎尚未接入，仅演示交互流程。</div>
+        <div class="frame ba" id="resultSlider">
+          <div class="ba-slider">
+            <div class="img before"><img id="beforeImg" alt="改造前（你上传的照片）"></div>
+            <div class="img after"><img id="afterImg" alt="改造后效果图"></div>
+            <span class="ba-tag before">你的照片</span>
+            <span class="ba-tag after">AI 效果</span>
+            <div class="ba-line"></div>
+            <div class="ba-handle"></div>
+          </div>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-ghost btn-js" id="backBtn2" type="button">换个风格重来</button>
+          <a class="btn btn-primary" id="againBtn" href="#p1">再做一次</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="wb-footnote" data-reveal>AI 效果图仅供方案构思参考，具体以实际测量与施工为准。</p>
+
+  </div>
+</main>
+
+<script src="js/config.js" defer></script>
+<script src="js/workbench.js" defer></script>
+</body>
+</html>

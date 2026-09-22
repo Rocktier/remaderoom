@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="一键生成效果图 —— 上传家里照片，一分钟看到新家效果。AI 家装设计，温暖新家从这里开始。">
+<title>一键生成效果图 · 上传照片，一分钟看到新家</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preload" as="image" href="img/hero-after.jpg">
+</head>
+<body>
+
+<!-- 滚动进度条 -->
+<div class="scroll-progress" id="scrollBar" aria-hidden="true"></div>
+
+<!-- 顶部导航 -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand magnetic">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 0 8H2zM22 3h-6a4 4 0 0 0 0 8h6zM2 21h20M2 17h20m-10-6v6"/></svg>
+      </span>
+      一键生成效果图
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#ba">效果展示</a></li>
+        <li><a href="#cases">风格案例</a></li>
+        <li><a href="#how">怎么用</a></li>
+        <li><a href="#scenes">适用场景</a></li>
+        <li><a href="#plan">试用</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="workbench.html" class="btn btn-primary btn-sm magnetic">免费体验</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge hero-anim"><span class="dot"></span> AI 家装设计 · 已为你准备好了</span>
+        <h1 class="hero-anim">上传一张照片，<br><em>一分钟</em> 看到新家的样子</h1>
+        <p class="lead hero-anim">不用会设计，不用等几天。拍一张家里的照片，选你喜欢的风格，AI 帮你把卫浴、厨房、客厅一键变成理想效果图。</p>
+        <div class="hero-actions hero-anim">
+          <a href="workbench.html" class="btn btn-primary btn-lg magnetic">免费体验效果图</a>
+          <a href="#ba" class="btn btn-ghost btn-lg magnetic">看前后对比</a>
+        </div>
+        <span class="hero-note hero-anim">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          出图约 1 分钟 · 新用户送 3 次免费出图
+        </span>
+        <div class="trust hero-anim">
+          <div class="trust-num"><b>1 分钟</b><span>出图</span></div>
+          <div class="trust-num"><b>3 步</b><span>轻松生成</span></div>
+          <div class="trust-num"><b>自由选</b><span>中古 / 宋式 / 奶油</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual hero-anim par-wrap">
+        <div class="frame tilt" data-ba>
+          <img class="after" src="img/hero-after.jpg" alt="改造后的温暖奶油风卧室">
+          <img class="before" src="img/hero-before.jpg" alt="改造前的旧卧室" loading="lazy">
+          <i class="chip green"><span class="c"></span> 改造后 · 奶油风</i>
+          <i class="chip chip-before amber"><span class="c"></span> 改造前</i>
+          <span class="rec-hint">悬停看改造前</span>
+        </div>
+        <div class="float-card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></span>
+          <div><b>设计已生成</b><span>前后对比 · 仅用 58 秒</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container brand-strip" data-reveal>
+      <div class="t">多种当代家装风格，一键可得</div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>奶油风</span><span>原木风</span><span>中古风</span><span>宋式美学</span><span>现代简约</span>
+          <span aria-hidden="true">奶油风</span><span aria-hidden="true">原木风</span><span aria-hidden="true">中古风</span><span aria-hidden="true">宋式美学</span><span aria-hidden="true">现代简约</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After 滑块 -->
+  <section id="ba">
+    <div class="container ba-grid">
+      <div data-reveal>
+        <span class="eyebrow">效果展示</span>
+        <h2 class="sec-title">改前改后，一滑看清</h2>
+        <p class="sec-sub">向右拖动中间的白线，亲眼看看同一间屋子，在被 AI 重新设计后是什么温度。</p>
+        <span class="ba-label">← 拖动滑块对比 →</span>
+        <ul class="ba-points">
+          <li>保留原来的墙体、门窗和布局，效果真实可信</li>
+          <li>换色调、换家具、换风格，全部由你决定</li>
+          <li>出图后还能继续微调，直到满意为止</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <div class="frame ba" id="baSlider">
+          <div class="ba-slider">
+            <div class="img before"><img src="img/ba-before.jpg" alt="改造前的客厅"></div>
+            <div class="img after"><img src="img/ba-after.jpg" alt="改造后温暖的奶油原木风客厅"></div>
+            <span class="ba-tag before">改造前</span>
+            <span class="ba-tag after">改造后</span>
+            <div class="ba-line"></div>
+            <div class="ba-handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 风格案例 -->
+  <section id="cases" style="background:var(--bg-soft)">
+    <div class="container">
+      <div data-reveal>
+        <span class="eyebrow">风格案例</span>
+        <h2 class="sec-title">你喜欢的样子，都在这里</h2>
+        <p class="sec-sub">无论你是想要温柔奶油风，还是讲究的宋式美学，AI 都能照着你的想法出图。悬停任意案例，看它改造前后的变化。</p>
+      </div>
+      <div class="case-grid">
+        <article class="case reveal-item" data-reveal>
+          <div class="ph ba-hover-case">
+            <img class="after" src="img/case-cream.jpg" alt="奶油风卧室">
+            <img class="before" src="img/hero-before.jpg" alt="奶油风卧室改造前" loading="lazy">
+            <span class="hv-tag">悬停 · 改造前</span>
+          </div>
+          <div class="bd">
+            <span class="tag">温柔治愈</span>
+            <h3>奶油风</h3>
+            <p>奶白与浅木，柔和光线，让回家变成放松的事。</p>
+          </div>
+        </article>
+        <article class="case reveal-item" data-reveal>
+          <div class="ph ba-hover-case">
+            <img class="after" src="img/case-wood.jpg" alt="原木风客厅">
+            <img class="before" src="img/ba-before.jpg" alt="原木风客厅改造前" loading="lazy">
+            <span class="hv-tag">悬停 · 改造前</span>
+          </div>
+          <div class="bd">
+            <span class="tag">自然质朴</span>
+            <h3>原木风</h3>
+            <p>天然的木头与亚麻，配一点绿植，安静又踏实。</p>
+          </div>
+        </article>
+        <article class="case reveal-item" data-reveal>
+          <div class="ph ba-hover-case">
+            <img class="after" src="img/case-song.jpg" alt="宋式美学书房">
+            <img class="before" src="img/case-song-before.jpg" alt="宋式美学书房改造前" loading="lazy">
+            <span class="hv-tag">悬停 · 改造前</span>
+          </div>
+          <div class="bd">
+            <span class="tag">东方雅致</span>
+            <h3>宋式美学</h3>
+            <p>留白与秩序，深木与墨色，营造宁静的东方气息。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三步怎么用 -->
+  <section id="how">
+    <div class="container">
+      <div style="text-align:center" data-reveal>
+        <span class="eyebrow" style="justify-content:center">怎么用</span>
+        <h2 class="sec-title">三步，把理想的家装进屏幕</h2>
+      </div>
+      <div class="steps">
+        <article class="step reveal-item" data-reveal>
+          <div class="num">01</div>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L6 23"/></svg></span>
+          <h3>上传照片</h3>
+          <p>拍一张家里的卫浴、厨房或客厅照片，直接传上来（或从手机相册里挑一张）。</p>
+          <span class="opt">卧室</span><span class="opt">客厅</span><span class="opt">卫生间</span>
+        </article>
+        <article class="step reveal-item" data-reveal>
+          <div class="num">02</div>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9l2.1 2.1m10 10 2.1 2.1M4.9 19.1l2.1-2.1m10-10 2.1-2.1"/></svg></span>
+          <h3>选风格</h3>
+          <p>奶油风、原木风、中古风、宋式美学……选中喜欢的，也可以再补充一句你的想法。</p>
+          <span class="opt">风格选择</span><span class="opt">自定义补充</span>
+        </article>
+        <article class="step reveal-item" data-reveal>
+          <div class="num">03</div>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+          <h3>一键出图</h3>
+          <p>约一分钟后，改造后的效果图就到手，还能和原图前后对比，随时调整。</p>
+          <span class="opt">约 1 分钟</span><span class="opt">前后对比</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 适用场景 -->
+  <section id="scenes" style="background:var(--bg-soft)">
+    <div class="container">
+      <div data-reveal>
+        <span class="eyebrow">适用场景</span>
+        <h2 class="sec-title">新家想得清，装修不用愁</h2>
+      </div>
+      <div class="scene-grid">
+        <figure class="scene par-wrap reveal-item" data-reveal>
+          <img class="par" src="img/scene-bathroom.jpg" alt="卫浴间效果图">
+          <div class="shade"></div>
+          <figcaption class="en">BATHROOM</figcaption>
+          <div class="nm">卫浴间</div>
+        </figure>
+        <figure class="scene par-wrap reveal-item" data-reveal>
+          <img class="par" src="img/scene-kitchen.jpg" alt="厨房效果图">
+          <div class="shade"></div>
+          <figcaption class="en">KITCHEN</figcaption>
+          <div class="nm">厨房</div>
+        </figure>
+        <figure class="scene par-wrap reveal-item" data-reveal>
+          <img class="par" src="img/scene-living.jpg" alt="客厅效果图">
+          <div class="shade"></div>
+          <figcaption class="en">LIVING ROOM</figcaption>
+          <div class="nm">客厅</div>
+        </figure>
+        <figure class="scene par-wrap reveal-item" data-reveal>
+          <img class="par" src="img/scene-bedroom.jpg" alt="卧室效果图">
+          <div class="shade"></div>
+          <figcaption class="en">BEDROOM</figcaption>
+          <div class="nm">卧室</div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方案 / 免费试用 -->
+  <section id="plan">
+    <div class="container">
+      <div style="text-align:center" data-reveal>
+        <span class="eyebrow" style="justify-content:center">免费试用</span>
+        <h2 class="sec-title">先不花钱，出张图看看</h2>
+        <p class="sec-sub" style="margin:0 auto">现在注册就送免费额度。觉得效果对味，再解锁更多风格、更多次出图和更细腻的细节。</p>
+      </div>
+      <div class="plan-grid">
+        <article class="plan reveal-item" data-reveal>
+          <h3>免费试用</h3>
+          <div class="hint">先看看 AI 能把你家变成什么样</div>
+          <div class="free-big">¥ 0</div>
+          <div class="price-note">新用户注册即送 3 次出图，无需付费</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>注册即送 3 次免费出图，先看效果</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>奶油 / 原木等精选风格</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>前后对比，先看到效果再决定</li>
+          </ul>
+          <a href="workbench.html" class="btn btn-primary magnetic">立即免费体验</a>
+        </article>
+
+        <article class="plan hot reveal-item" data-reveal>
+          <span class="chip-pop">更多玩法</span>
+          <h3>付费解锁</h3>
+          <div class="hint">想要更多风格、更多次、更高清？</div>
+          <div class="free-big" style="color:var(--ink)">更多选择</div>
+          <div class="price-note">按需付费 · 套餐灵活 · 即将开放</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>解锁中古风、宋式美学等全部风格</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>更多房间、更多次出图</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>高清图与更细腻的细节</li>
+          </ul>
+          <a href="#plan" class="btn btn-ghost">敬请期待</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container cta-inner reveal-item" data-reveal>
+      <h2>让理想的家，先一步出现在屏幕上</h2>
+      <p>拍张照，选个风格，剩下交给 AI。现在就开始你的第一次免费体验。</p>
+      <a href="workbench.html" class="btn btn-light btn-lg magnetic">开始免费体验</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>一键生成效果图</h4>
+        <p>把家里每一间屋子，都变成你理想中的样子。AI 家装设计，温暖看得见。</p>
+      </div>
+      <div class="footer-col">
+        <h4>探索</h4>
+        <a href="#ba">效果展示</a>
+        <a href="#cases">风格案例</a>
+        <a href="#how">怎么用</a>
+      </div>
+      <div class="footer-col">
+        <h4>开始</h4>
+        <a href="workbench.html">免费体验</a>
+        <a href="#plan">方案</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 一键生成效果图 · 上传照片，一分钟看到新家</span>
+      <span>AI 效果图仅供方案构思参考，具体以实际测量与施工为准</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/libs/gsap.min.js" defer></script>
+<script src="js/libs/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

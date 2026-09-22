@@ -1,0 +1,13 @@
+{
+  "_说明": "把本文件复制一份改名为 engine.config.json，再填 ark.key。engine.config.json 已被 .gitignore 排除，不会被提交。",
+  "_怎么拿key": "注册火山引擎 → 控制台搜「火山方舟」→ 开通豆包 Seedream 模型 → 左侧「API Key 管理」新建 → 复制到这里；模型名从「模型列表」里复制（形如 doubao-seedream-4-0-250828）",
+  "_provider": "mock = 不出真图，只演示整条链路（默认，零风险）；ark = 真正调豆包出图",
+  "provider": "mock",
+  "maxRendersPerDay": 20,
+  "ark": {
+    "key": "",
+    "model": "doubao-seedream-4-0-250828",
+    "size": "2K",
+    "watermark": false
+  }
+}
