@@ -224,9 +224,10 @@ async function handleGenerate(req, res) {
   }
 }
 
-/* 密钥和计数文件绝不通过 HTTP 发出去：同一 WiFi 下的手机能访问这个服务，
+/* 密钥、计数文件、以及商业文档目录绝不通过 HTTP 发出去：同一 WiFi 下的手机能访问这个服务，
    也就有能力 fetch 到这些文件，所以一律 403。 */
 function isPrivate(rel) {
+  if (rel === 'private' || rel.startsWith('private/')) return true;
   const base = rel.split('/').pop() || '';
   return base.charAt(0) === '.' || base === 'engine.config.json' ||
     base === 'server.log' || /\.env(\.|$)/.test(base);

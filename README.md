@@ -55,8 +55,8 @@ definition.
 Because the proxy binds to your machine's LAN address too, anyone on the same Wi-Fi can use it to render.
 `maxRendersPerDay` is what caps that. Stop the server when you are not demoing.
 
-`private/` is intentionally ignored: it holds business analysis and pricing notes that have no place in a
-public repository — including its history.
+`private/` is ignored by git **and** refused by the local server (403): it holds business analysis and
+pricing notes that have no place in a public repository — including its history.
 
 
 ## Layout
